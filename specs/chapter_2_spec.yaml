@@ -1,0 +1,24 @@
+id: chapter_2
+title: The Building Blocks of AI - Data and Algorithms
+description: Explore the crucial role of data in AI, different types of data, and how algorithms learn from it.
+learning_outcomes:
+  - Explain the importance of data in AI and machine learning.
+  - Differentiate between various types of data (structured, unstructured, semi-structured).
+  - Understand the basic concept of an algorithm and how it processes data.
+  - Identify ethical considerations related to data collection and usage.
+main_concepts:
+  - Data types: Structured, Unstructured, Semi-structured.
+  - Data sources and collection.
+  - Data preprocessing: Cleaning, transformation, feature engineering (basic).
+  - Introduction to algorithms (as "recipes" for learning).
+  - Bias in data and its implications.
+examples:
+  - Structured data: Spreadsheets.
+  - Unstructured data: Images, text, audio.
+  - Simple algorithm concept: Sorting numbers, finding patterns.
+  - Examples of data bias (e.g., facial recognition datasets).
+exercises:
+  - Identify data types from everyday scenarios.
+  - Brainstorm potential biases in a given dataset.
+summary:
+  - Data as fuel for AI, types of data, basics of algorithms and data ethics.

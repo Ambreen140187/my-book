@@ -1,0 +1,20 @@
+id: exercises
+title: Comprehensive Exercises and Projects
+description: A collection of hands-on exercises and mini-projects to reinforce learning and encourage practical application.
+learning_outcomes:
+  - Apply learned AI concepts to practical problems.
+  - Develop problem-solving skills in an AI context.
+  - Gain experience with basic AI tools or conceptual problem solving.
+main_concepts:
+  - Practical problems requiring application of concepts from chapters.
+  - Small data analysis tasks (conceptual).
+  - Ethical dilemma scenarios for discussion.
+examples:
+  - (Not applicable, this section *is* the examples/exercises)
+exercises:
+  - Design a simple decision tree for a given scenario.
+  - Analyze a dataset for potential biases (conceptual).
+  - Research and present on a specific AI application.
+  - Code a simple linear regression (pseudocode or high-level steps).
+summary:
+  - (Not applicable)

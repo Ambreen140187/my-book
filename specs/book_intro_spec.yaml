@@ -1,0 +1,19 @@
+id: book_intro
+title: Introduction to AI
+description: This section will introduce Artificial Intelligence, its history, relevance for students, and what the book will cover.
+learning_outcomes:
+  - Understand the definition and core concepts of AI.
+  - Recognize the historical milestones and evolution of AI.
+  - Appreciate the relevance of AI in today's world and for future careers.
+  - Outline the structure and learning journey of the book.
+main_concepts:
+  - Definition of AI (narrow, general, super)
+  - Brief history (Turing, Dartmouth, AI winters, modern resurgence)
+  - Importance of AI in various fields
+  - Overview of the book's contents
+examples:
+  - Simple real-world AI applications (e.g., recommendation systems, virtual assistants)
+exercises:
+  - Reflective questions on AI's presence in daily life.
+summary:
+  - Recap of AI definition, history, and book overview.

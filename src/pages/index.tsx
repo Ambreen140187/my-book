@@ -20,8 +20,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/book">
+            Start Reading Now
           </Link>
         </div>
       </div>
@@ -37,7 +37,19 @@ export default function Home(): ReactNode {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <section className="container text--center margin-top--lg">
+          <div className={clsx('col col--6 col--offset-3', 'glass-card')}>
+            <Heading as="h2">Discover the AI-Native Revolution</Heading>
+            <p>Dive deep into the future of software development with our comprehensive guide to AI-Native principles, tools, and best practices. Learn how to leverage artificial intelligence to build more intelligent, autonomous, and efficient systems.</p>
+            {/* Placeholder for book cover image */}
+            <img src="/img/docusaurus.png" alt="AI-Native Book Cover" style={{maxWidth: '200px', margin: '20px auto'}} />
+            <Link
+              className="button button--primary button--lg"
+              to="/book">
+              Explore Chapters
+            </Link>
+          </div>
+        </section>
       </main>
     </Layout>
   );

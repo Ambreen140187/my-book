@@ -1,0 +1,19 @@
+id: chapter_1
+title: What is Artificial Intelligence?
+description: Delve into the fundamental definition and various types of AI, helping students differentiate between common AI terms.
+learning_outcomes:
+  - Define Artificial Intelligence and distinguish between its sub-fields.
+  - Understand the differences between Narrow AI, General AI, and Super AI.
+  - Identify common misconceptions about AI.
+main_concepts:
+  - Definitions: AI, Machine Learning, Deep Learning, Data Science.
+  - Types of AI: Narrow (ANI), General (AGI), Super (ASI).
+  - AI capabilities and limitations.
+examples:
+  - ANI examples: Spam filters, image recognition, game AI (chess).
+  - Discuss hypothetical AGI and ASI scenarios.
+exercises:
+  - Categorize real-world AI applications into ANI, AGI (if applicable), or ASI.
+  - Discuss the feasibility of AGI in the near future.
+summary:
+  - Key definitions and AI types.

@@ -1,0 +1,24 @@
+id: chapter_6
+title: AI in Action - Real-World Applications
+description: Explore diverse real-world applications of AI across various industries, showcasing its impact and potential.
+learning_outcomes:
+  - Identify a range of AI applications in different sectors.
+  - Understand how AI is transforming industries and daily life.
+  - Discuss the benefits and challenges of integrating AI into real-world systems.
+main_concepts:
+  - AI in Healthcare (diagnosis, drug discovery).
+  - AI in Finance (fraud detection, algorithmic trading).
+  - AI in Transportation (self-driving cars, logistics).
+  - AI in Retail (recommendation systems, personalized shopping).
+  - AI in Education (personalized learning, intelligent tutoring).
+  - Challenges: data privacy, interpretability, job displacement.
+examples:
+  - Healthcare: IBM Watson, AI-powered diagnostics.
+  - Finance: Credit scoring, fraud detection algorithms.
+  - Transportation: Tesla Autopilot, drone delivery.
+  - Retail: Amazon's recommendation engine.
+exercises:
+  - Choose an industry and brainstorm new AI applications.
+  - Discuss the ethical implications of AI in a specific application (e.g., autonomous weapons).
+summary:
+  - Broad overview of AI's pervasive impact across industries.

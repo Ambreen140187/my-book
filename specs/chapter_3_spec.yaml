@@ -1,0 +1,23 @@
+id: chapter_3
+title: Machine Learning Fundamentals - Supervised Learning
+description: Introduce supervised learning, the most common type of machine learning, focusing on classification and regression.
+learning_outcomes:
+  - Define supervised learning and its primary goals.
+  - Differentiate between classification and regression problems.
+  - Understand basic supervised learning algorithms like linear regression and decision trees (conceptual).
+  - Evaluate model performance using simple metrics (accuracy, error).
+main_concepts:
+  - Supervised learning definition: labeled data, input-output mapping.
+  - Classification: predicting categories (e.g., spam/not spam).
+  - Regression: predicting continuous values (e.g., house prices).
+  - Training and testing datasets.
+  - Model evaluation (accuracy, error rate - conceptually).
+examples:
+  - Classification: Email spam detection, medical diagnosis (binary/multi-class).
+  - Regression: Predicting stock prices, predicting temperatures.
+  - Simple decision tree logic flow.
+exercises:
+  - Given a problem, identify if it's classification or regression.
+  - Propose features for a simple prediction task.
+summary:
+  - Supervised learning, classification, regression, and basic evaluation.
