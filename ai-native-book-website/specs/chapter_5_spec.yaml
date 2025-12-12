@@ -1,0 +1,23 @@
+id: chapter_5
+title: Neural Networks and Deep Learning - A Glimpse
+description: Introduce the concept of neural networks as inspired by the human brain and dive into the basics of deep learning.
+learning_outcomes:
+  - Understand the inspiration behind neural networks.
+  - Explain the basic structure of a simple neural network (neurons, layers, weights).
+  - Grasp the concept of deep learning and its advantages.
+  - Identify common applications of deep learning.
+main_concepts:
+  - Biological neuron vs. artificial neuron.
+  - Perceptron (basic conceptual model).
+  - Layers: Input, Hidden, Output.
+  - Weights and biases (conceptual).
+  - Deep Learning: multiple hidden layers, automatic feature extraction.
+  - Backpropagation (brief mention as a learning mechanism).
+examples:
+  - Simple neural network for basic pattern recognition.
+  - Deep learning applications: Image recognition, natural language processing (NLP), speech recognition.
+exercises:
+  - Describe a simple problem that could be solved by a neural network.
+  - Research a deep learning application and explain its real-world impact.
+summary:
+  - Neural networks as brain-inspired models, deep learning power, and applications.

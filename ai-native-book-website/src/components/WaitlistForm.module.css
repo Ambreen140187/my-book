@@ -1,0 +1,26 @@
+.waitlistContainer {
+  padding: 20px;
+  text-align: center;
+}
+
+.waitlistContainer input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
+  background-color: var(--glass-background);
+  color: var(--ifm-font-color-base);
+}
+
+.waitlistContainer button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.waitlistContainer .message {
+  margin-top: 10px;
+  font-weight: bold;
+}

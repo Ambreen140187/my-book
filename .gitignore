@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/modules/
+.DS_Store
+.pytest_cache/
+.hypothesis/
+
+# Backend specific
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+
+# Frontend specific
+ai-native-book-website/node_modules/
+ai-native-book-website/build/
+ai-native-book-website/.docusaurus/
+ai-native-book-website/.cache/
+ai-native-book-website/.env
+ai-native-book-website/.env.local
+ai-native-book-website/.env.development.local
+ai-native-book-website/.env.test.local
+ai-native-book-website/.env.production.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

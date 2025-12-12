@@ -1,0 +1,21 @@
+id: chapter_4
+title: Machine Learning Fundamentals - Unsupervised Learning
+description: Explore unsupervised learning techniques used for finding hidden patterns and structures in unlabeled data.
+learning_outcomes:
+  - Define unsupervised learning and its applications.
+  - Understand clustering and association rules as key unsupervised techniques.
+  - Explain how unsupervised learning can be used for data exploration and pattern discovery.
+main_concepts:
+  - Unsupervised learning definition: unlabeled data, pattern discovery.
+  - Clustering: grouping similar data points (e.g., K-Means conceptually).
+  - Association rules: finding relationships between items (e.g., market basket analysis).
+  - Dimensionality reduction (brief conceptual overview).
+examples:
+  - Clustering: Customer segmentation, document categorization.
+  - Association rules: "Customers who bought X also bought Y."
+  - Image compression (as a form of dimensionality reduction).
+exercises:
+  - Given a dataset, suggest an unsupervised learning technique to apply.
+  - Discuss real-world applications of customer segmentation.
+summary:
+  - Unsupervised learning for pattern discovery, clustering, and association rules.

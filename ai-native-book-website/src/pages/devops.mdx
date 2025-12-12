@@ -1,0 +1,102 @@
+---
+title: DevOps Deployment Guide
+description: Instructions for building and deploying the Docusaurus website
+keywords: [devops, deployment, vercel, github, build]
+---
+
+# DevOps Deployment Guide
+
+This guide provides instructions for building and deploying your Docusaurus website.
+
+## Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn package manager
+- Git
+- Vercel CLI (for deployment)
+
+## Installation & Build
+
+### Install Dependencies
+```bash
+npm install
+```
+
+### Build the Project
+```bash
+npm run build
+```
+
+## Deployment to Vercel
+
+### Login to Vercel
+```bash
+vercel login
+```
+
+### Initialize Vercel Project (if needed)
+```bash
+vercel init
+```
+
+### Deploy to Preview Environment
+```bash
+vercel deploy
+```
+
+### Deploy to Production
+```bash
+vercel --prod
+```
+
+## Push to GitHub
+
+### Initialize Git Repository (if needed)
+```bash
+git init
+```
+
+### Add Remote Repository
+```bash
+git remote add origin https://github.com/Ambreen140187/my-book.git
+```
+
+### Commit and Push Changes
+```bash
+git add .
+git commit -m "Update"
+git push origin main
+```
+
+## Troubleshooting Common Errors
+
+### Error: `npm install` fails
+- Clear npm cache: `npm cache clean --force`
+- Delete `node_modules` and `package-lock.json`, then run `npm install` again
+- Check if you have sufficient disk space
+
+### Error: `npm run build` fails
+- Verify all dependencies are installed: `npm install`
+- Check for syntax errors in your Markdown or JSX files
+- Ensure all imported components exist and have correct paths
+
+### Error: `vercel` command not found
+- Install Vercel CLI globally: `npm install -g vercel`
+- Verify installation: `vercel --version`
+
+### Error: Permission denied for Git push
+- Verify SSH key is properly configured for GitHub
+- Or use HTTPS authentication when prompted
+- Check repository access permissions
+
+### Error: Build timeout on Vercel
+- Optimize images and assets
+- Check for infinite loops or heavy computations
+- Increase build timeout in Vercel dashboard settings if needed
+
+## Additional Tips
+
+- Always test locally before deploying: `npm run serve` after building
+- Monitor build logs for warnings that might become errors later
+- Keep dependencies updated for security and performance
+- Use environment variables for sensitive configurations
