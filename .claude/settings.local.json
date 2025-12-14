@@ -1,15 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
-      "WebSearch",
-      "Bash(ls -la *.md)",
-      "Bash(dir)",
-      "Bash(python test_api.py)",
-      "Bash(npm run start)",
-      "Bash(python main.py)"
-    ],
-    "deny": [],
-    "ask": []
+      "Bash(curl -X POST http://localhost:8000/ask -H \"Content-Type: application/json\" -d '{\"\"question\"\": \"\"Hello, is the chatbot working?\"\", \"\"selected_text\"\": null}')",
+      "Bash(npm start)",
+      "Bash(git add .)"
+    ]
   }
 }

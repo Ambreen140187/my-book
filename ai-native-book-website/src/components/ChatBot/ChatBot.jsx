@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
+import API_CONFIG, { getApiUrl } from './config';
 import './ChatBot.css';
 
 const ChatBot = () => {
@@ -56,7 +57,7 @@ const ChatBot = () => {
       // Get selected text if any
       const currentSelectedText = window.getSelection().toString().trim();
 
-      const response = await fetch('http://localhost:8000/ask', {
+      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.ASK), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

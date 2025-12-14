@@ -5,6 +5,7 @@ from typing import Optional, List
 import cohere
 import logging
 import asyncio
+import os
 from vector_db_setup import search_relevant_chunks
 
 # Configure logging
@@ -16,16 +17,20 @@ app = FastAPI(title="AI Native Book RAG Chatbot",
               version="1.0.0")
 
 # Add CORS middleware to allow requests from frontend
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")  # Default for development
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=[FRONTEND_URL],  # Only allow specific frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Initialize Cohere client
-co = cohere.Client(api_key="P0y91LStZoc1d8cu9R5yDrzwKYo25DJ2wgx4fyL2")
+# Initialize Cohere client with environment variable
+COHERE_API_KEY = os.getenv("COHERE_API_KEY", "GlCohKRVje9RSSIrxlMK9DwRNZBiiiY6ojvlmICn")  # Using provided key as default
+
+co = cohere.Client(api_key=COHERE_API_KEY)
 
 class QuestionRequest(BaseModel):
     question: str

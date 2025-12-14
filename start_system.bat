@@ -13,7 +13,9 @@ python populate_db.py
 echo.
 
 echo Starting API server...
-start cmd /k "cd /d %~dp0\backend && uvicorn main:app --host 0.0.0.0 --port 8000"
+echo Please ensure you have set the COHERE_API_KEY environment variable
+echo Or create a .env file in the backend directory with your API key
+start cmd /k "cd /d %~dp0\backend && python -c \"import os; from main import COHERE_API_KEY; print('Starting server...')\" && uvicorn main:app --host 0.0.0.0 --port 8000"
 
 echo.
 echo To start the Docusaurus website:

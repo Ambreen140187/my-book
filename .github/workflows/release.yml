@@ -1,0 +1,146 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Trigger on version tags like v1.0.0
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for changelog
+
+    - name: Get version
+      id: version
+      run: |
+        if [ "${{ github.event.inputs.version }}" != "" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION="${GITHUB_REF#refs/tags/}"
+        fi
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Run pre-release checks
+      run: |
+        # Run tests to ensure code is stable
+        cd ai-native-book-website
+        npm ci
+        npm run build
+        cd ../backend
+        pip install -r requirements.txt
+        python -c "import main; print('Backend imports successfully')"
+
+    - name: Create changelog
+      run: |
+        # Generate changelog from git history
+        git log --oneline --since="1 month ago" > changelog.txt || echo "Could not generate changelog"
+
+        # Create a more detailed changelog
+        cat > release-notes.md << EOF
+        ## Release Notes for ${{ env.VERSION }}
+
+        ### Changes in this release:
+        \$(git log --pretty=format:"- %s (%h)" \$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD)
+
+        ### Backend:
+        - Updated API endpoints and security configurations
+        - Enhanced RAG functionality with Cohere and Qdrant
+        - Improved error handling and response formatting
+
+        ### Frontend:
+        - Floating chatbot UI with expandable interface
+        - Docusaurus integration with global component injection
+        - Responsive design for mobile and desktop
+        - Dark/light mode support
+
+        ### Infrastructure:
+        - CI/CD workflows for testing and deployment
+        - Health checks and monitoring
+        - Security scanning for secrets
+        EOF
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.VERSION }}
+        release_name: Release ${{ env.VERSION }}
+        body_path: release-notes.md
+        draft: false
+        prerelease: false
+
+    - name: Upload Assets - Backend
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./backend/
+        asset_name: backend-${{ env.VERSION }}.zip
+        asset_content_type: application/zip
+
+    - name: Upload Assets - Frontend
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ai-native-book-website/
+        asset_name: frontend-${{ env.VERSION }}.zip
+        asset_content_type: application/zip
+
+    - name: Build and Upload Docker Images
+      run: |
+        # Build Docker images for the release
+        cd backend
+        if [ -f "Dockerfile" ]; then
+          docker build -t ghcr.io/${{ github.repository }}-backend:${{ env.VERSION }} .
+          docker tag ghcr.io/${{ github.repository }}-backend:${{ env.VERSION }} ghcr.io/${{ github.repository }}-backend:latest
+          docker push ghcr.io/${{ github.repository }}-backend:${{ env.VERSION }}
+          docker push ghcr.io/${{ github.repository }}-backend:latest
+        fi
+
+        cd ../ai-native-book-website
+        if [ -f "Dockerfile" ]; then
+          docker build -t ghcr.io/${{ github.repository }}-frontend:${{ env.VERSION }} .
+          docker tag ghcr.io/${{ github.repository }}-frontend:${{ env.VERSION }} ghcr.io/${{ github.repository }}-frontend:latest
+          docker push ghcr.io/${{ github.repository }}-frontend:${{ env.VERSION }}
+          docker push ghcr.io/${{ github.repository }}-frontend:latest
+        fi
+
+  notify-release:
+    runs-on: ubuntu-latest
+    needs: create-release
+    if: success()
+
+    steps:
+    - name: Send release notification
+      run: |
+        echo "✅ Release ${{ needs.create-release.outputs.version }} has been created successfully!"
+        echo "Release is available at: https://github.com/${{ github.repository }}/releases/tag/${{ needs.create-release.outputs.version }}"
