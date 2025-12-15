@@ -92,7 +92,7 @@ async def ask_question(request: QuestionRequest):
 
         context = "\n\n".join(context_parts)
 
-        # Construct the prompt for the Cohere model
+        # Construct the prompt for the Cohere model with clear instructions
         if selected_text_used:
             prompt = f"""Based on the selected text below, please answer the user's question. Only use information from the provided text.
 
@@ -101,7 +101,11 @@ Selected Text:
 
 Question: {request.question}
 
-Answer concisely and accurately based on the provided text."""
+Instructions:
+1. Answer only based on the provided text
+2. If the answer is not in the provided text, clearly state "I don't know" or "The provided text does not contain information to answer this question"
+3. Be concise and accurate
+4. If you can partially answer, clearly indicate what information is available and what is missing"""
         else:
             prompt = f"""Based on the following book content, please answer the user's question. Only use information from the provided content.
 
@@ -110,7 +114,11 @@ Book Content:
 
 Question: {request.question}
 
-Provide a comprehensive answer based on the book content. If the information is not available in the provided content, say so clearly."""
+Instructions:
+1. Answer only based on the provided book content
+2. If the information needed to answer the question is not in the provided content, clearly state "I don't know" or "The provided content does not contain information to answer this question"
+3. Be comprehensive but only use the provided information
+4. If you can partially answer, clearly indicate what information is available and what is missing"""
 
         logger.info("Sending request to Cohere model...")
 

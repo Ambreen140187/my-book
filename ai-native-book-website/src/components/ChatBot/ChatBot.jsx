@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import API_CONFIG, { getApiUrl } from './config';
+import AIChatIcon from './icons/AIChatIcon';
 import './ChatBot.css';
 
 const ChatBot = () => {
@@ -116,7 +117,8 @@ const ChatBot = () => {
           onClick={toggleChat}
           aria-label="Open chat"
         >
-          💬 AI Book Assistant
+          <AIChatIcon size={20} className="chat-icon" />
+          <span>AI Book Assistant</span>
         </button>
       )}
 

@@ -133,8 +133,7 @@ jobs:
   deploy-netlify:
     runs-on: ubuntu-latest
     needs: test-frontend
-    if: github.ref == 'refs/heads/main' && !env.VERCEL_TOKEN
-
+    if: github.ref == 'refs/heads/main'
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -156,7 +155,8 @@ jobs:
         cd ai-native-book-website
         npm run build
 
-    - name: Deploy to Netlify
+    - name: Deploy to Netlify (only if no Vercel token set)
+      if: ${{ !secrets.VERCEL_TOKEN }}
       uses: nwtgck/actions-netlify@v2.0
       with:
         publish-dir: './ai-native-book-website/build'

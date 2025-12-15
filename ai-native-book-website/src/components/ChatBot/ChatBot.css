@@ -17,6 +17,10 @@
   transition: all 0.3s ease;
 }
 
+.chat-icon {
+  flex-shrink: 0;
+}
+
 .chatbot-button:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
